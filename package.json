@@ -1,0 +1,52 @@
+{
+  "name": "camerasimulator",
+  "version": "1.0.0",
+  "description": "原创相机定制与摄影模拟工作室",
+  "author": "CameraSimulator",
+  "main": "electron/main.cjs",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build && node scripts/prepare-sites-build.mjs",
+    "preview": "vite preview",
+    "test:sites": "node --test tests/sites-worker.test.mjs",
+    "typecheck": "tsc --noEmit",
+    "test": "node --test --experimental-test-isolation=none tests/camera.test.ts",
+    "desktop": "electron .",
+    "desktop:dev": "electron . --dev",
+    "package": "npm run typecheck && npm run test && npm run build && node scripts/generate-notices.mjs && electron-builder --win zip --x64"
+  },
+  "dependencies": {
+    "@phosphor-icons/react": "2.1.10",
+    "@react-three/drei": "10.7.8",
+    "@react-three/fiber": "9.7.0",
+    "@vitejs/plugin-react": "5.0.4",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
+    "three": "0.185.1",
+    "vite": "6.4.2",
+    "zod": "4.5.4",
+    "zustand": "5.0.15"
+  },
+  "build": {
+    "appId": "studio.camerasimulator.app",
+    "productName": "CameraSimulator",
+    "asar": true,
+    "electronDist": "node_modules/electron/dist",
+    "npmRebuild": false,
+    "directories": { "output": "release" },
+    "files": ["dist/client/**/*", "electron/**/*", "package.json", "!node_modules/**/*"],
+    "extraFiles": ["README.md", "ASSET-LICENSES.md", "THIRD-PARTY-NOTICES.txt"],
+    "win": { "target": "zip", "signAndEditExecutable": false, "artifactName": "CameraSimulator-${version}-win-x64.${ext}" }
+  },
+  "devDependencies": {
+    "@types/react": "19.2.18",
+    "@types/react-dom": "19.2.7",
+    "@types/three": "0.185.4",
+    "electron": "44.2.0",
+    "electron-builder": "26.15.3",
+    "tsx": "4.23.13",
+    "typescript": "7.0.2"
+  }
+}

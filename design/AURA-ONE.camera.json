@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "brand": "AURA",
+  "model": "ONE",
+  "sensor": {
+    "width": 36,
+    "height": 24,
+    "megapixels": 24
+  },
+  "lens": {
+    "focalLength": 50,
+    "apertureMin": 1.4,
+    "apertureMax": 16,
+    "blades": 9
+  },
+  "limits": {
+    "isoMin": 100,
+    "isoMax": 25600,
+    "shutterFast": 0.000125,
+    "shutterSlow": 30
+  },
+  "auxiliary": {
+    "whiteBalance": 5500,
+    "focusDistance": 4,
+    "readNoise": 2.4,
+    "fullWell": 45000
+  },
+  "appearance": {
+    "bodyColor": "graphite",
+    "inscription": "silver",
+    "material": "leather"
+  },
+  "automatic": {
+    "megapixels": true,
+    "blades": true,
+    "whiteBalance": true,
+    "focusDistance": true,
+    "readNoise": true,
+    "fullWell": true
+  }
+}
